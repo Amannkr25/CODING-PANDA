@@ -57,3 +57,55 @@ form.addEventListener('submit', (event) => {
     charCount.textContent = '0';
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('assignmentForm');
+    const fileUpload = document.getElementById('fileUpload');
+    const fileUploadLabel = document.querySelector('.file-upload-label span');
+
+    // Check if user is logged in
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        window.location.href = 'login.html';
+        return;
+    }
+
+    // Handle file upload label text
+    fileUpload.addEventListener('change', function() {
+        if (this.files.length > 0) {
+            fileUploadLabel.innerHTML = `${this.files.length} file(s) selected`;
+            fileUploadLabel.parentElement.querySelector('i').className = 'fas fa-check';
+        } else {
+            fileUploadLabel.innerHTML = 'Choose Files or Drag & Drop';
+            fileUploadLabel.parentElement.querySelector('i').className = 'fas fa-cloud-upload-alt';
+        }
+    });
+
+    // Handle form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+            course: document.getElementById('course').value,
+            title: document.getElementById('assignmentTitle').value,
+            description: document.getElementById('description').value,
+            files: fileUpload.files,
+            student: currentUser,
+            submissionDate: new Date().toISOString()
+        };
+
+        // Store submission in localStorage
+        let submissions = JSON.parse(localStorage.getItem('assignments') || '[]');
+        submissions.push(formData);
+        localStorage.setItem('assignments', JSON.stringify(submissions));
+
+        // Show success message
+        alert('Assignment submitted successfully!');
+        
+        // Reset form
+        form.reset();
+        fileUploadLabel.innerHTML = 'Choose Files or Drag & Drop';
+        fileUploadLabel.parentElement.querySelector('i').className = 'fas fa-cloud-upload-alt';
+    });
+});

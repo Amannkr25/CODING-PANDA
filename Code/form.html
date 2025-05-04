@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhanced Feedback Form with File Upload</title>
-  <link rel="stylesheet" href="form.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Submission - CODING PANDA</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="js/form.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-  <div class="form-container">
-    <h1>Feedback Form</h1>
-    <form id="feedbackForm">
-      <!-- Name -->
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        <span class="error-message hidden" id="nameError">Name is required</span>
-      </div>
-
-      <!-- Email -->
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        <span class="error-message hidden" id="emailError">Valid email is required</span>
-      </div>
-
-      <!-- Feedback -->
-      <div class="form-group">
-        <label for="feedback">Feedback:</label>
-        <textarea id="feedback" name="feedback" rows="4" placeholder="Write your feedback" required></textarea>
-        <div class="char-counter">
-          <span id="charCount">0</span>/200
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Assignment Submission</h1>
+            <p>Submit your assignment and track your progress</p>
         </div>
-        <span class="error-message hidden" id="feedbackError">Feedback cannot be empty</span>
-      </div>
 
-      <!-- File Uploads -->
-      <div class="form-group">
-        <label for="fileUpload">Upload Files (Video, Image, Document):</label>
-        <input type="file" id="fileUpload" name="files" multiple>
-        <small class="help-text">Supported formats: .jpg, .png, .pdf, .docx, .mp4 (Max: 10MB each)</small>
-        <span class="error-message hidden" id="fileError">Invalid file type or size.</span>
-      </div>
+        <form id="assignmentForm">
+            <div class="form-group">
+                <label for="course">Course</label>
+                <select id="course" required>
+                    <option value="">Select Course</option>
+                    <option value="web-dev">Web Development</option>
+                    <option value="python">Python Programming</option>
+                    <option value="data-structures">Data Structures</option>
+                </select>
+            </div>
 
-      <!-- Submit Button -->
-      <div class="form-group">
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+            <div class="form-group">
+                <label for="assignmentTitle">Assignment Title</label>
+                <input type="text" id="assignmentTitle" placeholder="Enter assignment title" required>
+            </div>
 
-    <!-- Success Message -->
-    <div id="successMessage" class="hidden">
-      <p>Thank you, <span id="userName"></span>, for your feedback and files!</p>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" placeholder="Describe your assignment..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Files</label>
+                <div class="file-upload">
+                    <input type="file" id="fileUpload" multiple>
+                    <label for="fileUpload" class="file-upload-label">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Choose Files or Drag & Drop</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i> Submit Assignment
+            </button>
+        </form>
+
+        <a href="student-dashboard.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Dashboard
+        </a>
     </div>
-  </div>
-  <script src="form.js"></script>
+
+    <script src="form.js"></script>
 </body>
 </html>

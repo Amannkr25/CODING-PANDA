@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Singh - Data Science Expert | CODING PANDA</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        .expert-profile {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .profile-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .profile-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .profile-info .expertise {
+            color: #00b4db;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .profile-info .bio {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #00b4db;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: #ccc;
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .main-content h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .main-content p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: rgba(0, 180, 219, 0.2);
+            color: #00b4db;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .sidebar {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            height: fit-content;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info h3 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            color: #00b4db;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #00b4db 0%, #0083B0 100%);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 992px) {
+            .profile-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-image img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="head">
+        <div class="logo"><h1>CODING PANDA</h1></div>
+        <div class="menu">
+            <label for="chk1">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+        </div>
+        <input type="checkbox" id="chk1">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="home.html#features">About us</a></li>
+            <li><a href="home.html#course">Courses</a></li>
+            <li><a href="home.html#community">Community</a></li>
+            <li><a href="home.html#contact">Contact Us</a></li>
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
+    </header>
+
+    <section class="expert-profile">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-image">
+                    <img src="Images/Sumit.png" alt="Sumit Singh">
+                    <div class="profile-overlay">
+                        <div class="social-links">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h1>Sumit Singh</h1>
+                    <h2>Data Science Expert</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="number">10+</span>
+                            <span class="label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">50+</span>
+                            <span class="label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">1000+</span>
+                            <span class="label">Students Trained</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <div class="main-content">
+                    <div class="section">
+                        <h3>About Me</h3>
+                        <p>With over a decade of experience in data science and machine learning, I've helped organizations transform their data into actionable insights. My expertise spans across predictive modeling, deep learning, and big data analytics.</p>
+                    </div>
+
+                    <div class="section">
+                        <h3>Expertise</h3>
+                        <ul class="expertise-list">
+                            <li>Machine Learning & Deep Learning</li>
+                            <li>Big Data Analytics</li>
+                            <li>Predictive Modeling</li>
+                            <li>Data Visualization</li>
+                            <li>Natural Language Processing</li>
+                            <li>Computer Vision</li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <h3>Skills</h3>
+                        <div class="skills-grid">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Hadoop</span>
+                            <span class="skill-tag">Spark</span>
+                            <span class="skill-tag">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p><i class="fas fa-envelope"></i> sumit.singh@codingpanda.com</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                    </div>
+
+                    <div class="certifications">
+                        <h3>Certifications</h3>
+                        <ul>
+                            <li>Google Data Analytics Professional Certificate</li>
+                            <li>IBM Data Science Professional Certificate</li>
+                            <li>Deep Learning Specialization - DeepLearning.AI</li>
+                            <li>Machine Learning - Stanford University</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>CODING PANDA</h3>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html#features">About us</a></li>
+                <li><a href="home.html#course">Courses</a></li>
+                <li><a href="home.html#community">Community</a></li>
+                <li><a href="home.html#contact">Contact Us</a></li>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright ©2025 All rights reserved | This templates is made by Aman Kumar</p>
+        </div>
+    </footer>
+</body>
+</html> 

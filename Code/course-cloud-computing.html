@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Course - CODING PANDA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #00b4db 0%, #0083B0 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .course-content {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-sidebar {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .video-player {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .video-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .playlist {
+            margin-top: 2rem;
+        }
+
+        .playlist h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .playlist-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #eee;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .playlist-item:hover {
+            background: #f8f8f8;
+        }
+
+        .playlist-item.active {
+            background: #00b4db;
+            color: white;
+        }
+
+        .playlist-item i {
+            margin-right: 1rem;
+            color: #00b4db;
+        }
+
+        .playlist-item.active i {
+            color: white;
+        }
+
+        .course-info {
+            margin-bottom: 2rem;
+        }
+
+        .course-info h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .course-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .course-details {
+            margin-bottom: 2rem;
+        }
+
+        .course-details h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .course-details ul {
+            list-style: none;
+        }
+
+        .course-details li {
+            margin-bottom: 0.5rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-details li i {
+            color: #00b4db;
+            margin-right: 0.5rem;
+        }
+
+        .enroll-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #00b4db;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+
+        .enroll-btn:hover {
+            background: #0083B0;
+        }
+
+        @media (max-width: 768px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cloud Computing</h1>
+        <p>Master cloud technologies and deployment strategies</p>
+    </div>
+
+    <div class="container">
+        <div class="course-grid">
+            <div class="course-content">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+                </div>
+
+                <div class="course-info">
+                    <h2>Course Overview</h2>
+                    <p>Learn to leverage cloud computing platforms and services. Master AWS, Azure, and Google Cloud to build scalable and reliable applications.</p>
+                </div>
+
+                <div class="playlist">
+                    <h3>Course Content</h3>
+                    <div class="playlist-item active">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Introduction to Cloud Computing</span>
+                    </div>
+                    <div class="playlist-item">
+                        <i class="fas fa-play-circle"></i>
+                        <span>AWS Fundamentals</span>
+                    </div>
+                    <div class="playlist-item">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Azure Cloud Services</span>
+                    </div>
+                    <div class="playlist-item">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Google Cloud Platform</span>
+                    </div>
+                    <div class="playlist-item">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Cloud Security and Compliance</span>
+                    </div>
+                    <div class="playlist-item">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Cloud Architecture and Deployment</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-sidebar">
+                <div class="course-details">
+                    <h3>Course Details</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> Duration: 12 weeks</li>
+                        <li><i class="fas fa-video"></i> 55+ video lectures</li>
+                        <li><i class="fas fa-tasks"></i> 12+ practical projects</li>
+                        <li><i class="fas fa-certificate"></i> Certificate on completion</li>
+                    </ul>
+                </div>
+
+                <div class="course-details">
+                    <h3>What You'll Learn</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Cloud computing fundamentals</li>
+                        <li><i class="fas fa-check"></i> AWS, Azure, and GCP services</li>
+                        <li><i class="fas fa-check"></i> Cloud architecture design</li>
+                        <li><i class="fas fa-check"></i> Cloud security best practices</li>
+                        <li><i class="fas fa-check"></i> Containerization and Kubernetes</li>
+                    </ul>
+                </div>
+
+                <a href="#" class="enroll-btn">Enroll Now - ₹599</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

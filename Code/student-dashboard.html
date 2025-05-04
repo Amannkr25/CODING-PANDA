@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - CODING PANDA</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        .dashboard-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            display: flex;
+            position: relative;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            position: fixed;
+            height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-bottom: 10px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, #00b4db 0%, #0083B0 100%);
+            transform: translateX(5px);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-text {
+            color: #fff;
+            font-size: 1.8rem;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00b4db 0%, #0083B0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .profile-name {
+            color: #fff;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 180, 219, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00b4db;
+        }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .progress-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .progress-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .progress-item {
+            margin-bottom: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00b4db, #0083B0);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .recent-activity {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 180, 219, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00b4db;
+            margin-right: 15px;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .activity-time {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .user-profile {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">CODING PANDA</div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="courses.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        My Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar"></i>
+                        Schedule
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="assignments.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        Assignments
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="progress.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        Progress
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="discussions.html" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        Discussions
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="home.html" class="nav-link" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h1 class="welcome-text">Welcome back, Student!</h1>
+                <div class="user-profile">
+                    <div class="profile-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span class="profile-name">John Doe</span>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Enrolled Courses</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                    </div>
+                    <div class="card-value">5</div>
+                    <div class="card-description">Active courses this semester</div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Assignments</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                    </div>
+                    <div class="card-value">12</div>
+                    <div class="card-description">Pending assignments</div>
+                    <a href="form.html" class="form-link" style="display: block; margin-top: 15px; color: #00b4db; text-decoration: none; font-weight: 500;">
+                        <i class="fas fa-file-alt"></i> Submit Assignment
+                    </a>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Progress</h3>
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="card-value">75%</div>
+                    <div class="card-description">Overall course completion</div>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h2 class="section-title">Course Progress</h2>
+                <ul class="progress-list">
+                    <li class="progress-item">
+                        <div class="progress-header">
+                            <span>Web Development</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </li>
+                    <li class="progress-item">
+                        <div class="progress-header">
+                            <span>Python Programming</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </li>
+                    <li class="progress-item">
+                        <div class="progress-header">
+                            <span>Data Structures</span>
+                            <span>45%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="recent-activity">
+                <h2 class="section-title">Recent Activity</h2>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Submitted Assignment: Web Development</div>
+                            <div class="activity-time">2 hours ago</div>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Completed Video: Python Basics</div>
+                            <div class="activity-time">5 hours ago</div>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Posted in Discussion: Data Structures</div>
+                            <div class="activity-time">1 day ago</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // User data and course management
+        const userData = {
+            courses: [
+                {
+                    name: "Web Development",
+                    progress: 85,
+                    assignments: 4,
+                    completed: 3
+                },
+                {
+                    name: "Python Programming",
+                    progress: 65,
+                    assignments: 3,
+                    completed: 2
+                },
+                {
+                    name: "Data Structures",
+                    progress: 45,
+                    assignments: 5,
+                    completed: 2
+                }
+            ],
+            recentActivity: [
+                {
+                    type: "assignment",
+                    title: "Submitted Assignment: Web Development",
+                    time: "2 hours ago"
+                },
+                {
+                    type: "video",
+                    title: "Completed Video: Python Basics",
+                    time: "5 hours ago"
+                },
+                {
+                    type: "discussion",
+                    title: "Posted in Discussion: Data Structures",
+                    time: "1 day ago"
+                }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Update welcome message and profile name
+            const welcomeText = document.querySelector('.welcome-text');
+            const profileName = document.querySelector('.profile-name');
+            welcomeText.textContent = `Welcome back, ${currentUser.firstName}!`;
+            profileName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+
+            // Update dashboard stats
+            updateDashboardStats();
+
+            // Update course progress
+            updateCourseProgress();
+
+            // Update recent activity
+            updateRecentActivity();
+
+            // Add mobile menu toggle functionality
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Handle logout
+            const logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('currentUser');
+                window.location.href = 'home.html';
+            });
+
+            // Handle form submission
+            const formLink = document.querySelector('.form-link');
+            formLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'form.html';
+            });
+        });
+
+        function updateDashboardStats() {
+            const totalCourses = userData.courses.length;
+            const totalAssignments = userData.courses.reduce((sum, course) => sum + course.assignments, 0);
+            const completedAssignments = userData.courses.reduce((sum, course) => sum + course.completed, 0);
+            const overallProgress = Math.round(userData.courses.reduce((sum, course) => sum + course.progress, 0) / totalCourses);
+
+            document.querySelector('.card-value:nth-child(1)').textContent = totalCourses;
+            document.querySelector('.card-value:nth-child(2)').textContent = totalAssignments;
+            document.querySelector('.card-value:nth-child(3)').textContent = `${overallProgress}%`;
+        }
+
+        function updateCourseProgress() {
+            const progressList = document.querySelector('.progress-list');
+            progressList.innerHTML = '';
+
+            userData.courses.forEach(course => {
+                const progressItem = document.createElement('li');
+                progressItem.className = 'progress-item';
+                progressItem.innerHTML = `
+                    <div class="progress-header">
+                        <span>${course.name}</span>
+                        <span>${course.progress}%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${course.progress}%"></div>
+                    </div>
+                `;
+                progressList.appendChild(progressItem);
+            });
+        }
+
+        function updateRecentActivity() {
+            const activityList = document.querySelector('.activity-list');
+            activityList.innerHTML = '';
+
+            userData.recentActivity.forEach(activity => {
+                const activityItem = document.createElement('li');
+                activityItem.className = 'activity-item';
+                
+                let iconClass = 'fa-file-alt';
+                if (activity.type === 'video') iconClass = 'fa-video';
+                if (activity.type === 'discussion') iconClass = 'fa-comment';
+
+                activityItem.innerHTML = `
+                    <div class="activity-icon">
+                        <i class="fas ${iconClass}"></i>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-title">${activity.title}</div>
+                        <div class="activity-time">${activity.time}</div>
+                    </div>
+                `;
+                activityList.appendChild(activityItem);
+            });
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweta - Cloud Computing Expert | CODING PANDA</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <header class="head">
+        <div class="logo"><h1>CODING PANDA</h1></div>
+        <div class="menu">
+            <label for="chk1">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+        </div>
+        <input type="checkbox" id="chk1">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="home.html#features">About us</a></li>
+            <li><a href="home.html#course">Courses</a></li>
+            <li><a href="home.html#community">Community</a></li>
+            <li><a href="home.html#contact">Contact Us</a></li>
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
+    </header>
+
+    <section class="expert-profile">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-image">
+                    <img src="Images/sweta.png" alt="Sweta Kumari">
+                    <div class="profile-overlay">
+                        <div class="social-links">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h1>Sweta Kumari</h1>
+                    <h2>Cloud Computing Expert</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="number">8+</span>
+                            <span class="label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">50+</span>
+                            <span class="label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">1000+</span>
+                            <span class="label">Students Trained</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <div class="main-content">
+                    <div class="section">
+                        <h3>About Me</h3>
+                        <p>As an AWS certified solutions architect, I specialize in designing and implementing scalable cloud solutions. With over 8 years of experience in cloud computing, I've helped numerous organizations migrate to and optimize their cloud infrastructure.</p>
+                    </div>
+
+                    <div class="section">
+                        <h3>Expertise</h3>
+                        <ul class="expertise-list">
+                            <li>Cloud Architecture Design</li>
+                            <li>AWS Solutions</li>
+                            <li>DevOps Implementation</li>
+                            <li>Cloud Security</li>
+                            <li>Microservices Architecture</li>
+                            <li>Containerization</li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <h3>Skills</h3>
+                        <div class="skills-grid">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Terraform</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Networking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p><i class="fas fa-envelope"></i> sweta@codingpanda.com</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+                    </div>
+
+                    <div class="certifications">
+                        <h3>Certifications</h3>
+                        <ul>
+                            <li>AWS Solutions Architect Professional</li>
+                            <li>Google Cloud Professional Architect</li>
+                            <li>Microsoft Azure Solutions Architect</li>
+                            <li>Certified Kubernetes Administrator</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

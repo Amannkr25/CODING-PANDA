@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eLearning Platform</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="js/script.js">
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" >
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
   />
+
   <script
     src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
@@ -23,32 +25,29 @@
        
         <div  class="logo" ><h1>CODING PANDA</h1><br></div>
         <div class="search">
-        <form action="">
-            <input type="text" name="search" id="srch" placeholder="Search here">
-            <button type="submit"><i class="fa fa-search "></i></button>
-        </form>
-    </div> 
-            <ul>
-                <li><a href="#course">Courses</a></li>
-                <li><a href="#features">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="form.html">Assignment Upload</a></li>
-                <li><a href="login.html"class="login-btn">Login</a></li>
-                <li>
-                    <a href="#" class="fab fa-facebook"><i></i></a>
-                    <a href="#" class="fab fa-twitter"><i></i></a>
-                    <a href="#" class="fab fa-instagram"><i></i></a>
-                </li>
-            </ul>
-            <div class="menu">
-                <label for="chk1">
-                    <i class="fa fa-bars"></i>
-                </label>
-
-            </div>
-     
+            <form id="courseSearchForm">
+                <input type="text" id="searchInput" placeholder="Search courses..." required>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div id="searchResults" class="search-results"></div>
+        </div> 
+        <div class="menu">
+            <label for="chk1">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+        </div>
+        <input type="checkbox" id="chk1">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">About us</a></li>
+            <li><a href="#course">Courses</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
     </header>
     <section id="home">
+      
         <h2>Enhance Your Future With CODING PANDA</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
@@ -61,216 +60,299 @@
           <a class="btn-two" href="#course">Visit Courses</a>
         </div>
       </section>
-  
-      <!-- Features -->
+
       <section id="features">
-        <h1>Awesome Features</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, nisi!</p>
+        <div class="features-header">
+          <h1>Why Choose CODING PANDA?</h1>
+          <p>Discover the unique features that make us your perfect learning partner</p>
+        </div>
         <div class="feature-base">
           <div class="feature-box">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <h3>Scholorship Facility</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              quam sunt nam neque aperiam tenetur!
-            </p>
+            <div class="feature-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Scholarship Facility</h3>
+              <p>Access quality education with our scholarship programs designed to support talented students.</p>
+              <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
           </div>
   
           <div class="feature-box">
-            <i class="fa-solid fa-laptop-code"></i>
-            <h3>Online Courses</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              quam sunt nam neque aperiam tenetur!
-            </p>
+            <div class="feature-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Online Courses</h3>
+              <p>Learn from anywhere with our comprehensive online courses and interactive learning materials.</p>
+              <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
           </div>
   
           <div class="feature-box">
-            <i class="fa-solid fa-award"></i>
-            <h3>Global Certificatiion</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              quam sunt nam neque aperiam tenetur!
-            </p>
+            <div class="feature-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Global Certification</h3>
+              <p>Earn internationally recognized certificates upon completion of our courses.</p>
+              <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Expert Community</h3>
+              <p>Connect with industry experts and fellow learners in our vibrant community.</p>
+              <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Flexible Learning</h3>
+              <p>Learn at your own pace with 24/7 access to course materials.</p>
+              <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Career Growth</h3>
+              <p>Enhance your career prospects with industry-relevant skills and guidance.</p>
+              <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fa-solid fa-video"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Live Sessions</h3>
+              <p>Participate in interactive live sessions with expert instructors.</p>
+              <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fa-solid fa-project-diagram"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Practical Projects</h3>
+              <p>Build your portfolio with hands-on projects and real-world applications.</p>
+              <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
           </div>
         </div>
       </section>
-  
-      <!-- Courses -->
       <section id="course">
         <h1>Our Popular Courses</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, nisi!</p>
         <div class="course-box">
           <div class="courses">
-            <img src="images/webdev.png" alt="Web Development" />
-            <div class="details">
-              <span>Updated 21/8/21</span>
-              <h6>Web Development for beginners</h6>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span>(239)</span>
+            <a href="course-web-development.html">
+              <img src="images/webdev.png" loading="lazy" alt="Web Development" />
+              <div class="details">
+                <h3>Web Development for beginners</h3>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>(239)</span>
+                </div>
               </div>
-            </div>
-            <div class="cost">₹399</div>
+              <div class="cost">₹399</div>
+            </a>
           </div>
   
           <div class="courses">
-            <img src="images/app_development.jpg" alt="Web Development" />
-            <div class="details">
-              <span>Updated 21/8/21</span>
-              <h6>App Development for beginners</h6>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span>(239)</span>
+            <a href="course-app-development.html">
+              <img src="images/app_development.jpg" loading="lazy"alt="App Development" />
+              <div class="details">
+                <h3>App Development for beginners</h3>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>(239)</span>
+                </div>
               </div>
-            </div>
-            <div class="cost">₹399</div>
+              <div class="cost">₹399</div>
+            </a>
           </div>
   
           <div class="courses">
-            <img src="images/Full_Stack.png" alt="Web Development" />
-            <div class="details">
-              <span>Updated 21/8/21</span>
-              <h6>Full Stack Development</h6>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span>(239)</span>
+            <a href="course-full-stack.html">
+              <img src="images/Full_Stack.png"loading="lazy" alt="Full Stack Development" />
+              <div class="details">
+                <h3>Full Stack Development</h3>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>(239)</span>
+                </div>
               </div>
-            </div>
-            <div class="cost">₹399</div>
+              <div class="cost">₹399</div>
+            </a>
           </div>
   
           <div class="courses">
-            <img src="images/data_science.jpg" alt="Web Development" />
-            <div class="details">
-              <span>Updated 21/8/21</span>
-              <h6>Data Science for beginners</h6>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span>(239)</span>
+            <a href="course-data-science.html">
+              <img src="images/data_science.jpg" loading="lazy"alt="Data Science" />
+              <div class="details">
+                <h3>Data Science for beginners</h3>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>(239)</span>
+                </div>
               </div>
-            </div>
-            <div class="cost">₹399</div>
+              <div class="cost">₹399</div>
+            </a>
           </div>
   
           <div class="courses">
-            <img src="images/al.png" alt="Web Development" />
-            <div class="details">
-              <span>Updated 21/8/21</span>
-              <h6>AI and ML using Python</h6>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span>(239)</span>
+            <a href="course-ai-ml.html">
+              <img src="images/al.png"loading="lazy" alt="AI and ML" />
+              <div class="details">
+                <h3>AI and ML using Python</h3>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>(239)</span>
+                </div>
               </div>
-            </div>
-            <div class="cost">₹399</div>
+              <div class="cost">₹399</div>
+            </a>
           </div>
   
           <div class="courses">
-            <img src="images/cloud.jpg" alt="Web Development" />
-            <div class="details">
-              <span>Updated 21/8/21</span>
-              <h6>Cloud Computing - AWS</h6>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span>(239)</span>
+            <a href="course-cloud-computing.html">
+              <img src="images/cloud.jpg" loading="lazy"alt="Cloud Computing" />
+              <div class="details">
+                <h3>Cloud Computing - AWS</h3>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>(239)</span>
+                </div>
               </div>
-            </div>
-            <div class="cost">₹399</div>
+              <div class="cost">₹399</div>
+            </a>
           </div>
         </div>
       </section>
   
-      <!-- community -->
       <section id="community">
-        <h1>Community Experts</h1>
-        <p class="community-para">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam, enim.
-        </p>
+        <div class="community-header">
+          <h1>Meet Our Expert Instructors</h1>
+          <p>Learn from industry professionals with years of experience in their respective fields</p>
+        </div>
         <div class="expert-box">
           <div class="profile">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-              alt="profile image"
-            />
-            <h6>Summit singh</h6>
-            <p>Data Science Expert</p>
-            <div class="social">
-              <i class="fa-brands fa-facebook-f"></i>
-              <i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-linkedin-in"></i>
+            <div class="profile-image">
+              <img src="Images/Sumit.png" loading="lazy"alt="Sumit Singh" />
+              <div class="profile-overlay">
+                <a href="expert-sumit.html" class="view-profile">View Profile</a>
+              </div>
+            </div>
+            <div class="profile-content">
+              <h3>Sumit Singh</h3>
+              <p class="expertise">Data Science Expert</p>
+              <p class="bio">10+ years of experience in data analysis and machine learning</p>
+              <div class="social">
+                <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
             </div>
           </div>
-  
+
           <div class="profile">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-              alt="profile image"
-            />
-            <h6>Wazid khan</h6>
-            <p>App Development Expert</p>
-            <div class="social">
-              <i class="fa-brands fa-facebook-f"></i>
-              <i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-linkedin-in"></i>
+            <div class="profile-image">
+              <img src="Images/Wajid.png"loading="lazy" alt="Wazid Khan" />
+              <div class="profile-overlay">
+                <a href="expert-wazid.html" class="view-profile">View Profile</a>
+              </div>
+            </div>
+            <div class="profile-content">
+              <h3>Wazid Khan</h3>
+              <p class="expertise">App Development Expert</p>
+              <p class="bio">Specialized in iOS and Android app development</p>
+              <div class="social">
+                <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
             </div>
           </div>
-  
+
           <div class="profile">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-              alt="profile image"
-            />
-            <h6>Rahul Tyagi</h6>
-            <p>Web Development Expert</p>
-            <div class="social">
-              <i class="fa-brands fa-facebook-f"></i>
-              <i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-linkedin-in"></i>
+            <div class="profile-image">
+              <img src="Images/rahul.png" alt="Rahul Tyagi" />
+              <div class="profile-overlay">
+                <a href="expert-rahul.html" class="view-profile">View Profile</a>
+              </div>
+            </div>
+            <div class="profile-content">
+              <h3>Rahul Tyagi</h3>
+              <p class="expertise">Web Development Expert</p>
+              <p class="bio">Full-stack developer with expertise in modern web technologies</p>
+              <div class="social">
+                <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
             </div>
           </div>
-  
+
           <div class="profile">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-              alt="profile image"
-            />
-            <h6>Swetaa kumari</h6>
-            <p>Cloud Computing Expert</p>
-            <div class="social">
-              <i class="fa-brands fa-facebook-f"></i>
-              <i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-linkedin-in"></i>
+            <div class="profile-image">
+              <img src="Images/sweta.png" alt="Sweta Kumari" />
+              <div class="profile-overlay">
+                <a href="expert-sweta.html" class="view-profile">View Profile</a>
+              </div>
+            </div>
+            <div class="profile-content">
+              <h3>Sweta Kumari</h3>
+              <p class="expertise">Cloud Computing Expert</p>
+              <p class="bio">AWS certified solutions architect with 8+ years of experience</p>
+              <div class="social">
+                <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
             </div>
           </div>
         </div>
       </section>
-  
-      <!-- Contact us -->
       <section id="contact">
         <h1>Contact Us</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, nisi!</p>
@@ -296,50 +378,46 @@
           </div>
         </div>
       </section>
-  
-      <!-- Footer -->
+
       <footer>
-        <div class="footer-col">
-          <h3>CODING PANDA</h3>
-          <li><a href="#">Home</a></li>
-          <li><a href="#features">About us</a></li>
-          <li><a href="#course">Courses</a></li>
-          <li><a href="#community">Community</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-        </div>
-  
-        <div class="footer-col">
-          <h3>Resources</h3>
-          <li><a href="#course">Web Development</a></li>
-          <li><a href="#course">App Development</a></li>
-          <li><a href="#course">Data Science</a></li>
-          <li><a href="#course">Clound Computing</a></li>
-        </div>
-  
-        <div class="footer-col">
-          <h3>Follow us</h3>
-          <li>Instagram</li>
-          <li>Facebook</li>
-          <li>Linkedin</li>
-          <li>Github</li>
-        </div>
-  
-        <div class="footer-col">
-          <h3>News Letter</h3>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, odit.
-          </p>
-          <div class="subscribe">
-            <input type="text" placeholder="Your Email Address" />
-            <a class="white" href="#">SUBSCRIBE</a>
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>CODING PANDA</h3>
+            <li><a href="#">Home</a></li>
+            <li><a href="#features">About us</a></li>
+            <li><a href="#course">Courses</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </div>
+    
+          <div class="footer-col">
+            <h3>Resources</h3>
+            <li><a href="#course">Web Development</a></li>
+            <li><a href="#course">App Development</a></li>
+            <li><a href="#course">Data Science</a></li>
+            <li><a href="#course">Cloud Computing</a></li>
+          </div>
+    
+          <div class="footer-col">
+            <h3>Follow us</h3>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Linkedin</a></li>
+            <li><a href="#">Github</a></li>
+          </div>
+    
+          <div class="footer-col">
+            <h3>News Letter</h3>
+            <p>Subscribe to our newsletter for updates and exclusive offers!</p>
+            <div class="subscribe">
+              <input type="text" placeholder="Your Email Address" />
+              <a class="white" href="#">SUBSCRIBE</a>
+            </div>
           </div>
         </div>
-  
+    
         <div class="copyright">
-          <p>
-            Copyright ©2023 All rights reserved | This templates is made by
-            Aman Kumar
-          </p>
+          <p>Copyright ©2025 All rights reserved | This templates is made by Aman Kumar</p>
           <div class="social">
             <i class="fa-brands fa-facebook-f"></i>
             <i class="fa-brands fa-instagram"></i>
@@ -349,5 +427,7 @@
       </footer>
   
     </body>
+    <script src="script.js"></script>
+    
   </html>
   

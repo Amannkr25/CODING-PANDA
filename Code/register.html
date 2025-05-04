@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - CODING PANDA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CODING PANDA</title>
     <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="js/login.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        .login-container {
+        .register-container {
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -19,7 +18,7 @@
             overflow: hidden;
         }
 
-        .login-container::before {
+        .register-container::before {
             content: '';
             position: absolute;
             top: 0;
@@ -32,13 +31,13 @@
             z-index: 1;
         }
 
-        .login-box {
+        .register-box {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
             width: 100%;
-            max-width: 400px;
+            max-width: 500px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
@@ -47,37 +46,45 @@
             transition: all 0.3s ease;
         }
 
-        .login-box:hover {
+        .register-box:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .login-header {
+        .register-header {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .login-header h1 {
+        .register-header h1 {
             color: #fff;
             font-size: 2rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .login-header p {
+        .register-header p {
             color: #ccc;
             font-size: 1rem;
         }
 
-        .form-group {
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
             margin-bottom: 35px;
+        }
+
+        .form-group {
             position: relative;
+            margin-bottom: 35px;
         }
 
         .form-group i {
             position: absolute;
             left: 15px;
             top: 50%;
+        
             transform: translateY(-50%);
             color: #00b4db;
         }
@@ -104,39 +111,31 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .remember-forgot {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
+        .terms {
+            margin: 25px 0;
             color: #ccc;
             font-size: 0.9rem;
         }
 
-        .remember-me {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .remember-me input[type="checkbox"] {
+        .terms input[type="checkbox"] {
             width: 16px;
             height: 16px;
             accent-color: #00b4db;
+            margin-right: 8px;
         }
 
-        .forgot-password {
+        .terms a {
             color: #00b4db;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        .forgot-password:hover {
+        .terms a:hover {
             color: #fff;
             text-decoration: underline;
         }
 
-        .login-btn {
+        .register-btn {
             width: 100%;
             padding: 15px;
             background: linear-gradient(135deg, #00b4db 0%, #0083B0 100%);
@@ -151,12 +150,12 @@
             overflow: hidden;
         }
 
-        .login-btn:hover {
+        .register-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 180, 219, 0.4);
         }
 
-        .login-btn::before {
+        .register-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -172,41 +171,41 @@
             transition: 0.5s;
         }
 
-        .login-btn:hover::before {
+        .register-btn:hover::before {
             left: 100%;
         }
 
-        .register-link {
+        .login-link {
             text-align: center;
             margin-top: 25px;
             color: #ccc;
         }
 
-        .register-link a {
+        .login-link a {
             color: #00b4db;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
-        .register-link a:hover {
+        .login-link a:hover {
             color: #fff;
             text-decoration: underline;
         }
 
-        .social-login {
+        .social-register {
             margin-top: 30px;
             text-align: center;
         }
 
-        .social-login p {
+        .social-register p {
             color: #ccc;
             margin-bottom: 15px;
             position: relative;
         }
 
-        .social-login p::before,
-        .social-login p::after {
+        .social-register p::before,
+        .social-register p::after {
             content: '';
             position: absolute;
             top: 50%;
@@ -215,11 +214,11 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        .social-login p::before {
+        .social-register p::before {
             left: 0;
         }
 
-        .social-login p::after {
+        .social-register p::after {
             right: 0;
         }
 
@@ -248,53 +247,68 @@
         }
 
         @media (max-width: 480px) {
-            .login-box {
+            .register-box {
                 padding: 30px 20px;
             }
 
-            .login-header h1 {
+            .register-header h1 {
                 font-size: 1.8rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-  <div class="login-container">
-    <div class="login-box">
-            <div class="login-header">
-                <h1>Welcome Back</h1>
-                <p>Please login to your account</p>
+    <div class="register-container">
+        <div class="register-box">
+            <div class="register-header">
+                <h1>Create Account</h1>
+                <p>Join our coding community today</p>
             </div>
-            <form id="loginForm" onsubmit="return validateForm(event)">
+            <form id="registerForm" onsubmit="return validateForm(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="firstName" placeholder="First Name" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="lastName" placeholder="Last Name" required autocomplete="off">
+                    </div>
+                </div>
                 <div class="form-group">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" placeholder="Email Address" required>
-        </div>
+                    <input type="email" id="email" placeholder="Email Address" required autocomplete="off">
+                </div>
                 <div class="form-group">
                     <i class="fas fa-lock"></i>
-                    <input type="password" id="password" placeholder="Password" required>
-        </div>
-                <div class="remember-forgot">
-        <div class="remember-me">
-                        <input type="checkbox" id="remember">
-                        <label for="remember">Remember me</label>
-                    </div>
-                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <input type="password" id="password" placeholder="Password" required autocomplete="new-password">
                 </div>
-                <button type="submit" class="login-btn">Login</button>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required autocomplete="new-password">
+                </div>
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                <button type="submit" class="register-btn">Create Account</button>
             </form>
-            <div class="register-link">
-                <p>Don't have an account? <a href="register.html">Register Now</a></p>
+            <div class="login-link">
+                <p>Already have an account? <a href="login.html">Login</a></p>
             </div>
-            <div class="social-login">
-                <p>Or login with</p>
+            <div class="social-register">
+                <p>Or register with</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-google"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-        </div>
+            </div>
         </div>
     </div>
 
@@ -302,61 +316,82 @@
         function validateForm(event) {
             event.preventDefault();
             
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const remember = document.getElementById('remember').checked;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const termsCheckbox = document.getElementById('terms');
 
             // Basic validation
-            if (!email || !password) {
+            if (!firstName || !lastName || !email || !password || !confirmPassword) {
                 alert('Please fill in all fields');
-                return false;
+                return;
             }
 
-            // Email format validation
+        
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('Please enter a valid email address');
-                return false;
+                return;
             }
 
-            // Password length validation
+           
             if (password.length < 6) {
                 alert('Password must be at least 6 characters long');
-                return false;
+                return;
             }
 
-            // Get stored users
-            const users = JSON.parse(localStorage.getItem('users') || '[]');
             
-            // Find user with matching email and password
-            const user = users.find(u => u.email === email && u.password === password);
-
-            if (user) {
-                // Store current user if remember me is checked
-                if (remember) {
-                    localStorage.setItem('currentUser', JSON.stringify({
-                        email: user.email,
-                        firstName: user.firstName,
-                        lastName: user.lastName
-                    }));
-                }
-
-                // Redirect to dashboard
-                window.location.href = 'student-dashboard.html';
-            } else {
-                alert('Invalid email or password. Please try again or register if you haven\'t already.');
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
             }
-            return false;
+
+           
+            if (!termsCheckbox.checked) {
+                alert('Please agree to the Terms of Service and Privacy Policy');
+                return;
+            }
+
+            
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            if (users.some(user => user.email === email)) {
+                alert('This email is already registered');
+                return;
+            }
+
+            
+            users.push({
+                firstName,
+                lastName,
+                email,
+                password
+            });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            
+            document.getElementById('firstName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('confirmPassword').value = '';
+            document.getElementById('terms').checked = false;
+
+            
+            alert('Registration successful! Please login to continue.');
+            window.location.href = 'login.html';
         }
 
-        // Check for remembered user on page load
+        
         document.addEventListener('DOMContentLoaded', function() {
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            if (currentUser) {
-                document.getElementById('email').value = currentUser.email;
-                document.getElementById('remember').checked = true;
-            }
+            document.getElementById('firstName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('confirmPassword').value = '';
+            document.getElementById('terms').checked = false;
         });
     </script>
 </body>
-</html>
+</html> 
